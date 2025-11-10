@@ -1,0 +1,356 @@
+<html>
+  <head>
+    <title>Smart Parking</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/animate.css">
+    
+    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../static/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="../static/css/aos.css">
+
+    <link rel="stylesheet" href="../static/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="../static/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../static/css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="../static/css/flaticon.css">
+    <link rel="stylesheet" href="../static/css/icomoon.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+  </head>
+  <body>
+    
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Smart <span>Parking</span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="/home" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="/view" class="nav-link">View</a></li>
+	          <li class="nav-item"><a href="/report" class="nav-link">Reports</a></li>
+			  <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+    
+   <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../static/images/sp1.png');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div class="col-md-9 ftco-animate pb-5">
+          
+            <h1 class="mb-3 bread"></h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section contact-section">
+      <div class="container">
+        <div class="row">
+        	<div class="col-md-2">
+        	</div>
+			<div class="col-md-8">
+			
+         <br><h3>Station: </h3>
+				<table width="90%" border="1" cellpadding="5" cellspacing="5">
+                  <tr>
+                    <td align="center" class="active">Slot1</td>
+                    <td align="center" class="active">Slot2</td>
+                    <td align="center" class="active">Slot3</td>
+                    <td align="center" class="active">Slot4</td>
+                    <td align="center" class="active">Slot5</td>
+                  </tr>
+                  <tr>
+                    <td align="center"> {% if s1==1 %}
+                      {% for row in data %}
+                      
+                      {% if row[5]==1 and row[23]==1 %}
+                      
+                      Car No.: {{ row[3] }} <br>
+                         <img src="../static/images/{{ row[6] }}" width="80" height="100"><br>
+						  {% if row[19]==1 %}
+						  <a href="/view?act=start&sid={{ sid }}&slot=1&rid={{row[0]}}">Start Charge</a> 
+						  {% elif row[19]==2 %}
+						  <iframe src="/charge1?rid={{row[0]}}" frameborder="0" width="200" height="60"></iframe>
+						  {% elif row[19]==3 %} 
+						  <span class="style2">Charge Completed</span><br />
+						   
+						   
+						   {% endif %}
+						   
+						    {% if row[21]==1 and row[20]=="Cash" %}
+								 <h3 style="color:#FF0000">Payment Verification</h3>
+								 <a href="/view?act=pay&rid={{row[0]}}">Amount Received</a>
+									{% endif %}
+                      
+					  {% endif %}
+                      {% endfor %}
+                      
+                      {% else %} <img src="../static/images/slot.jpg" width="131" height="164"> <br>
+                      {% endif %} </td>
+                    <td align="center"> {% if s2==2 %}
+                      {% for row in data %}
+                      
+                      {% if row[5]==2 and row[23]==1 %}
+                      
+                      Car No.: {{ row[3] }} <br>
+                         <img src="../static/images/{{ row[6] }}" width="80" height="100"><br>
+						  {% if row[19]==1 %}
+						  <a href="/view?act=start&sid={{ sid }}&slot=2&rid={{row[0]}}">Start Charge</a> 
+						  {% elif row[19]==2 %}
+						  <iframe src="/charge1?rid={{row[0]}}" frameborder="0" width="200" height="60"></iframe>
+						  {% elif row[19]==3 %} 
+						  <span class="style2">Charge Completed</span><br />
+						   
+						   
+						   {% endif %}
+						   
+                      {% endif %}
+                      {% endfor %}
+                      
+                      {% else %} <img src="../static/images/slot.jpg" width="131" height="164"> <br>
+                       {% endif %} </td>
+                    <td align="center"> {% if s3==3 %}
+                      {% for row in data %}
+                      
+                      {% if row[5]==3 and row[23]==1 %}
+                      
+                      Car No.: {{ row[3] }} <br>
+                         <img src="../static/images/{{ row[6] }}" width="80" height="100"><br>
+						  {% if row[19]==1 %}
+						  <a href="/view?act=start&sid={{ sid }}&slot=3&rid={{row[0]}}">Start Charge</a> 
+						  {% elif row[19]==2 %}
+						  <iframe src="/charge1?rid={{row[0]}}" frameborder="0" width="200" height="60"></iframe>
+						  {% elif row[19]==3 %} 
+						  <span class="style2">Charge Completed</span><br />
+						   
+						   
+						   {% endif %}
+                      {% endif %}
+                      {% endfor %}
+                      
+                      {% else %} <img src="../static/images/slot.jpg" width="131" height="164"> <br>
+                       {% endif %} </td>
+                    <td align="center"> {% if s4==4 %}
+                      {% for row in data %}
+                      
+                      {% if row[5]==4 and row[23]==1 %}
+                      
+                      Car No.: {{ row[3] }} <br>
+                         <img src="../static/images/{{ row[6] }}" width="80" height="100"><br>
+						  {% if row[19]==1 %}
+						  <a href="/view?act=start&sid={{ sid }}&slot=4&rid={{row[0]}}">Start Charge</a> 
+						  {% elif row[19]==2 %}
+						  <iframe src="/charge1?rid={{row[0]}}" frameborder="0" width="200" height="60"></iframe>
+						  {% elif row[19]==3 %} 
+						  <span class="style2">Charge Completed</span><br />
+						   
+						   
+						   {% endif %}
+                      {% endif %}
+                      {% endfor %}
+                      
+                      {% else %} <img src="../static/images/slot.jpg" width="131" height="164"> <br>
+                       {% endif %} </td>
+                    <td align="center"> {% if s5==5 %}
+                      {% for row in data %}
+                      
+                      {% if row[5]==5 and row[23]==1 %}
+                      
+                      Car No.: {{ row[3] }} <br>
+                         <img src="../static/images/{{ row[6] }}" width="80" height="100"><br>
+						  {% if row[19]==1 %}
+						  <a href="/view?act=start&sid={{ sid }}&slot=5&rid={{row[0]}}">Start Charge</a> 
+						  {% elif row[19]==2 %}
+						  <iframe src="/charge1?rid={{row[0]}}" frameborder="0" width="200" height="60"></iframe>
+						  {% elif row[19]==3 %} 
+						  <span class="style2">Charge Completed</span><br />
+						   
+						   
+						   {% endif %}
+                      {% endif %}
+                      {% endfor %}
+                      
+                      {% else %} <img src="../static/images/slot.jpg" width="131" height="164"> <br>
+                      {% endif %} </td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="active">Slot6</td>
+                    <td align="center" class="active">Slot7</td>
+                    <td align="center" class="active">Slot8</td>
+                    <td align="center" class="active">Slot9</td>
+                    <td align="center" class="active">Slot10</td>
+                  </tr>
+                  <tr>
+                    <td align="center"> {% if s6==6 %}
+                      {% for row in data %}
+                      
+                      {% if row[5]==6 and row[23]==1 %}
+                      
+                      Car No.: {{ row[3] }} <br>
+                         <img src="../static/images/{{ row[6] }}" width="80" height="100"><br>
+						  {% if row[19]==1 %}
+						  <a href="/view?act=start&sid={{ sid }}&slot=6&rid={{row[0]}}">Start Charge</a> 
+						  {% elif row[19]==2 %}
+						  <iframe src="/charge1?rid={{row[0]}}" frameborder="0" width="200" height="60"></iframe>
+						  {% elif row[19]==3 %} 
+						  <span class="style2">Charge Completed</span><br />
+						   
+						   
+						   {% endif %}
+                      {% endif %}
+                      {% endfor %}
+                      
+                      {% else %} <img src="../static/images/slot.jpg" width="131" height="164"> <br>
+                       {% endif %} </td>
+                    <td align="center"> {% if s7==7 %}
+                      {% for row in data %}
+                      
+                      {% if row[5]==7 and row[23]==1 %}
+                      sdds
+                      Car No.: {{ row[3] }} <br>
+                         <img src="../static/images/{{ row[6] }}" width="80" height="100"><br>
+						  {% if row[19]==1 %}
+						  <a href="/view?act=start&sid={{ sid }}&slot=7&rid={{row[0]}}">Start Charge</a> 
+						  {% elif row[19]==2 %}
+						  <iframe src="/charge1?rid={{row[0]}}" frameborder="0" width="200" height="60"></iframe>
+						  {% elif row[19]==3 %} 
+						  <span class="style2">Charge Completed</span><br />
+						   
+						   
+						   {% endif %}
+						   
+						    {% if row[21]==1 and row[20]=="Cash" %}
+								 <h3 style="color:#FF0000">Payment Verification</h3>
+								 <a href="/view?act=pay&rid={{row[0]}}">Amount Received</a>
+									{% endif %}
+                      {% endif %}
+                      {% endfor %}
+                      
+                      {% else %} <img src="../static/images/slot.jpg" width="131" height="164"> <br>
+                       {% endif %} </td>
+                    <td align="center"> {% if s8==8 %}
+                      {% for row in data %}
+                      
+                      {% if row[5]==8 and row[23]==1 %}
+                      
+                      Car No.: {{ row[3] }} <br>
+                         <img src="../static/images/{{ row[6] }}" width="80" height="100"><br>
+						  {% if row[19]==1 %}
+						  <a href="/view?act=start&sid={{ sid }}&slot=8&rid={{row[0]}}">Start Charge</a> 
+						  {% elif row[19]==2 %}
+						  <iframe src="/charge1?rid={{row[0]}}" frameborder="0" width="200" height="60"></iframe>
+						  {% elif row[19]==3 %} 
+						  <span class="style2">Charge Completed</span><br />
+						   
+						   
+						   {% endif %}
+                      {% endif %}
+                      {% endfor %}
+                      
+                      {% else %} <img src="../static/images/slot.jpg" width="131" height="164"> <br>
+                       {% endif %} </td>
+                    <td align="center"> {% if s9==9 %}
+                      {% for row in data %}
+                      
+                      {% if row[5]==9 and row[23]==1 %}
+                      
+                      Car No.: {{ row[3] }} <br>
+                         <img src="../static/images/{{ row[6] }}" width="80" height="100"><br>
+						  {% if row[19]==1 %}
+						  <a href="/view?act=start&sid={{ sid }}&slot=9&rid={{row[0]}}">Start Charge</a> 
+						  {% elif row[19]==2 %}
+						  <iframe src="/charge1?rid={{row[0]}}" frameborder="0" width="200" height="60"></iframe>
+						  {% elif row[19]==3 %} 
+						  <span class="style2">Charge Completed</span><br />
+						   
+						   
+						   {% endif %}
+                      {% endif %}
+                      {% endfor %}
+                      
+                      {% else %} <img src="../static/images/slot.jpg" width="131" height="164"> <br>
+                      {% endif %} </td>
+                    <td align="center"> {% if s10==10 %}
+                      {% for row in data %}
+                      
+                      {% if row[5]==10 and row[23]==1 %}
+                      
+                      Car No.: {{ row[3] }} <br>
+                         <img src="../static/images/{{ row[6] }}" width="80" height="100"><br>
+						  {% if row[19]==1 %}
+						  <a href="/view?act=start&sid={{ sid }}&slot=10&rid={{row[0]}}">Start Charge</a> 
+						  {% elif row[19]==2 %}
+						  <iframe src="/charge1?rid={{row[0]}}" frameborder="0" width="200" height="60"></iframe>
+						  {% elif row[19]==3 %} 
+						  <span class="style2">Charge Completed</span><br />
+						   
+						   
+						   {% endif %}
+                      {% endif %}
+                      {% endfor %}
+                      
+                      {% else %} <img src="../static/images/slot.jpg" width="131" height="164"> <br>
+                      {% endif %} </td>
+                  </tr>
+                </table>
+				<form name="form1" method="post" action="">
+				  <input type="submit" name="Submit" value="Refresh">
+			  </form>
+		 
+		  </div>
+        </div>
+        
+      </div>
+    </section>
+	
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Smart Parking <a href="https://colorlib.com" target="_blank"></a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+
+  <script src="../static/js/jquery.min.js"></script>
+  <script src="../static/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../static/js/popper.min.js"></script>
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script src="../static/js/jquery.easing.1.3.js"></script>
+  <script src="../static/js/jquery.waypoints.min.js"></script>
+  <script src="../static/js/jquery.stellar.min.js"></script>
+  <script src="../static/js/owl.carousel.min.js"></script>
+  <script src="../static/js/jquery.magnific-popup.min.js"></script>
+  <script src="../static/js/aos.js"></script>
+  <script src="../static/js/jquery.animateNumber.min.js"></script>
+  <script src="../static/js/bootstrap-datepicker.js"></script>
+  <script src="../static/js/jquery.timepicker.min.js"></script>
+  <script src="../static/js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="../static/js/google-map.js"></script>
+  <script src="../static/js/main.js"></script>
+    
+  </body>
+</html>

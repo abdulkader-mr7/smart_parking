@@ -1,0 +1,57 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+{% if s1=="1" %}
+
+<span style="color:#009900"> Face Matched...</span>
+ <script>
+//Using setTimeout to execute a function after 5 seconds.
+setTimeout(function () {
+   //Redirect with JavaScript
+   window.parent.location.href= '/payment?rid={{rid}}&sid={{sid}}';
+}, 2000);
+</script>
+{% elif s1=="2" %}
+<span style="color:#FF0000"> Face Not Match!</span>
+
+<iframe src="http://localhost/parking/test1.php" width="100" height="100" frameborder="0"></iframe>
+<div align="center"><iframe src="/cap" width="500" height="500" frameborder="0"></iframe>
+	{% if vm=="1" %}
+	
+	<iframe src="http://iotcloud.co.in/testsms/sms.php?sms=emr&name={{name}}&mess={{mess}}&mobile={{mobile}}" width="10" height="10" ></iframe>
+	
+<script>
+//Using setTimeout to execute a function after 5 seconds.
+setTimeout(function () {
+   //Redirect with JavaScript
+   window.location.href= '/verify_otp2?rid={{rid}}&sid={{sid}}';
+}, 4000);
+</script>
+	{% else %}
+	<script>
+//Using setTimeout to execute a function after 5 seconds.
+setTimeout(function () {
+   //Redirect with JavaScript
+   window.location.href= '/verify_link?rid={{rid}}&sid={{sid}}';
+}, 4000);
+</script>
+	{% endif %}
+{% else %}
+
+<script>
+//Using setTimeout to execute a function after 5 seconds.
+setTimeout(function () {
+   //Redirect with JavaScript
+   window.location.href= '/verify?rid={{rid}}&sid={{sid}}';
+}, 10000);
+</script>
+
+{% endif %}
+
+</body>
+</html>
