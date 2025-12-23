@@ -66,8 +66,7 @@
 			<div class="col-md-8">
 			
       	<br><h3>Station: {{uname}}</h3>
-				
-				
+                {% if data %}
                 <table width="80%" border="1" align="center" cellpadding="5" cellspacing="0">
                   <tr>
                     <th width="5%" align="left">Sno</th>
@@ -77,6 +76,8 @@
                     <th width="20%" align="left">OUT Time </th>
                     <th width="20%" align="left">Details</th>
                   </tr>
+
+
 				{% for row in data %}
                   <tr>
                     <td align="left">{{loop.index}}</td>
@@ -112,8 +113,20 @@
                   </tr>
 				 {% endfor %}
                 </table>
-				
-				
+			{% else %}
+                <table>
+                <tr>
+                    <th width="5%" align="left">Sno</th>
+                    <th width="34%" align="left">User</th>
+                    <th width="20%" align="left">Slot No. </th>
+                    <th width="21%" align="left">IN Time </th>
+                    <th width="20%" align="left">OUT Time </th>
+                    <th width="20%" align="left">Details</th>
+                  </tr>
+                    </table>
+
+
+                {% endif %}
 		 
 		  </div>
         </div>

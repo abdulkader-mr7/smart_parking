@@ -24,6 +24,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Table structure for table `ev_booking`
 --
+UPDATE `smart_parking_face`.`ev_register` SET `uname` = 'skk3' WHERE `ev_register`.`id` =5
 
 CREATE TABLE `ev_booking` (
   `id` int(11) NOT NULL,
@@ -76,7 +77,7 @@ CREATE TABLE `ev_register` (
   `bank` varchar(20) NOT NULL,
   `amount` double NOT NULL,
   `uname` varchar(20) NOT NULL,
-  `pass` varchar(20) NOT NULL
+  `pass` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -102,7 +103,7 @@ CREATE TABLE `ev_station` (
   `lat` varchar(20) NOT NULL,
   `lon` varchar(20) NOT NULL,
   `uname` varchar(20) NOT NULL,
-  `pass` varchar(20) NOT NULL
+  `pass` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -169,3 +170,15 @@ INSERT INTO `vt_face` (`id`, `vid`, `vface`) VALUES
 (37, 1, 'User.1.38.jpg'),
 (38, 1, 'User.1.39.jpg'),
 (39, 1, 'User.1.40.jpg');
+
+
+AND CONVERT( `ev_register`.`name` USING utf8 ) = 'abdul kader'
+AND CONVERT( `ev_register`.`address` USING utf8 ) = 'Nagore'
+AND `ev_register`.`mobile` =8667060779
+AND CONVERT( `ev_register`.`email` USING utf8 ) = 'abdulkadermr7@gmail.com'
+AND CONVERT( `ev_register`.`account` USING utf8 ) = '12243243232'
+AND CONVERT( `ev_register`.`card` USING utf8 ) = '245788666543'
+AND CONVERT( `ev_register`.`bank` USING utf8 ) = 'Indian Bank'
+AND CONCAT( `ev_register`.`amount` ) =10000
+AND CONVERT( `ev_register`.`uname` USING utf8 ) = 'skk'
+AND CONVERT( `ev_register`.`pass` USING utf8 ) = 'pbkdf2:sha256:150000$zMZm53lg$81c3d5b1914c88864bd019dd95e537bc8ad0453b0ed0a65aceee047994a06e51' LIMIT 1 ;
