@@ -1,4 +1,4 @@
-python~=3.7
+python~=3.7.3
 opencv-python~=4.9.0.80
 numpy~=1.21.6
 ImageHash~=4.3.1
