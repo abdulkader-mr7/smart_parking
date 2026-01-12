@@ -9,4 +9,5 @@ dotenv
 python-dotenv
 Flask-Login
 Werkzeug
+mysql-connector
 gunicorn
