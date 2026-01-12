@@ -9,3 +9,4 @@ dotenv
 python-dotenv
 Flask-Login
 Werkzeug
+gunicorn
