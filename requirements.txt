@@ -1,5 +1,11 @@
 Flask
-mysql-connector
-gunicorn
-
-
+opencv-python
+numpy
+Pillow
+imutils
+pytesseract
+ImageHash
+dotenv
+python-dotenv
+Flask-Login
+Werkzeug
