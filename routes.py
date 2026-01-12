@@ -1,5 +1,3 @@
-from tkinter.tix import Select
-
 import mysql.connector
 from flask import Blueprint, render_template, request, redirect, url_for, session, Response, current_app, flash
 from werkzeug.security import generate_password_hash, check_password_hash
